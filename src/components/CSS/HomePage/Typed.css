@@ -1,0 +1,24 @@
+.typing-container {
+    margin: 20px 0;
+    /* Add some margin */
+    position: absolute;
+    top: 12cm;
+    left: 25cm;
+}
+
+.typing-text {
+    color: #000;
+    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: left;
+
+}
+.Typed-cursor {
+    font-size: 24px;
+    /* Match cursor size with text */
+    color: #000;
+    /* Cursor color, same as text color */
+}
+
