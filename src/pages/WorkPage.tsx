@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef} from "react";
 import WorkGrid from "../components/WorkPage/WorkGrid";
 import "../pagesCSS/WorkPage.css";
 
