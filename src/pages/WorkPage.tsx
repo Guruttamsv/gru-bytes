@@ -5,7 +5,6 @@ import "../pagesCSS/WorkPage.css";
 const WorkPage: React.FC = () => {
   const subHeadingRef = useRef<HTMLDivElement>(null);
   const workGridRef = useRef<HTMLDivElement>(null);
-  const [showWorkGrid, setShowWorkGrid] = useState(false);
 
   useEffect(() => {
     const subHeadingObserver = new IntersectionObserver(
@@ -36,28 +35,6 @@ const WorkPage: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const workGridObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setShowWorkGrid(true); // Render WorkGrid when it comes into view
-            workGridObserver.unobserve(entry.target); // Stop observing after rendering
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (workGridRef.current) {
-      workGridObserver.observe(workGridRef.current);
-    }
-
-    return () => {
-      workGridObserver.disconnect();
-    };
-  }, []);
-
   return (
     <div className="work-page-container">
       <div className="sub-heading" ref={subHeadingRef}>
@@ -69,7 +46,7 @@ const WorkPage: React.FC = () => {
       </div>
 
       <div ref={workGridRef} style={{ minHeight: "200px" }}>
-        {showWorkGrid && <WorkGrid />}
+        <WorkGrid />
       </div>
     </div>
   );

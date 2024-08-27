@@ -1,24 +1,54 @@
+/* src/components/CSS/HomePage/Typed.css */
 .typing-container {
-    margin: 20px 0;
-    /* Add some margin */
     position: absolute;
-    top: 12cm;
-    left: 25cm;
+    right: 5%;
+    /* Position it 5% away from the right edge */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Vertically center it on the screen */
+
+    /* Ensure the container does not overflow on smaller screens */
+    max-width: 90%;
+    padding: 10px;
 }
 
 .typing-text {
     color: #000;
-    font-size: 60px;
+    font-size: 2rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     line-height: 1.5;
-    text-align: left;
-
+    text-align: right;
+    /* Align the text to the right */
 }
+
 .Typed-cursor {
-    font-size: 24px;
-    /* Match cursor size with text */
+    font-size: 2rem;
     color: #000;
-    /* Cursor color, same as text color */
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .typing-container {
+        right: 10%;
+        /* Move it closer to the center on smaller screens */
+        font-size: 1.5rem;
+        /* Adjust font size */
+    }
+
+    .typing-text {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .typing-container {
+        right: 5%;
+        font-size: 1.2rem;
+        /* Further adjust font size */
+    }
+
+    .typing-text {
+        font-size: 1.2rem;
+    }
+}

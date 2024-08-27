@@ -1,6 +1,4 @@
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
-
+/* src/components/CSS/HomePage/Ticker.css */
 .ticker-container {
     width: 100%;
     background-color: #000000;
@@ -8,12 +6,12 @@
     padding: 10px 0;
     overflow: hidden;
     position: absolute;
-    top: 1.5cm;
-    /* Start at the very top of the screen */
+    /* Fixed to ensure it's always visible at the top */
+    top: 3.5pc;
     left: 0;
     cursor: pointer;
     z-index: 9999;
-    /* High z-index to ensure it's above everything else */
+    /* Ensures it stays above other elements */
 }
 
 .ticker-text {
@@ -27,11 +25,8 @@
 
 .ticker-text.hovered {
     animation: none;
-    /* Stop the scrolling when hovered */
     white-space: normal;
-    /* Allow the text to wrap */
     overflow: visible;
-    /* Ensure text is not cut off */
 }
 
 @keyframes ticker {
