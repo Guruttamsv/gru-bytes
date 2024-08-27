@@ -1,9 +1,23 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../pagesCSS/IconsPage.css";
 import FloatingIcons from "../components/IconsPage/FloatingIcons";
 
 const IconsPage: React.FC = () => {
   const subHeadingRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,7 +57,7 @@ const IconsPage: React.FC = () => {
           </span>
         ))}
       </div>
-      <FloatingIcons />
+      {isMobile ? <FloatingIcons mobile /> : <FloatingIcons />}
     </div>
   );
 };

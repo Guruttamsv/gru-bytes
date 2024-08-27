@@ -1,10 +1,20 @@
 import Spline from "@splinetool/react-spline";
 import "../CSS/IconsPage/FloatingIcons.css";
 
-const FloatingIcons: React.FC = () => {
+interface FloatingIconsProps {
+  mobile?: boolean;
+}
+
+const FloatingIcons: React.FC<FloatingIconsProps> = ({ mobile = false }) => {
   return (
     <div className="work-grid">
-      <Spline scene="https://prod.spline.design/rVN18yVnsmMEqX3w/scene.splinecode" />
+      <Spline
+        scene={
+          mobile
+            ? "https://prod.spline.design/HkSKzMYuK5rJjs5j/scene.splinecode"
+            : "https://prod.spline.design/rVN18yVnsmMEqX3w/scene.splinecode"
+        }
+      />
     </div>
   );
 };

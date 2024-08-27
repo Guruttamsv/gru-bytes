@@ -1,16 +1,35 @@
 .work-grid {
-    position:absolute;
+    position: absolute;
     padding-top: 40px;
     width: 100%;
     height: 100%;
-    left:0%;
+    left: 0;
     margin-bottom: 20px;
     overflow: hidden;
 }
 
+/* Canvas styles to ensure Spline fills its container */
 .work-grid canvas {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .work-grid {
+        padding-top: 20px;
+        /* Adjust padding for mobile */
+        height: 80vh;
+        /* Adjust height for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .work-grid {
+        padding-top: 20px;
+        /* Further adjust padding for very small screens */
+        height: 100vh;
+        /* Further adjust height for mobile */
+    }
+}
