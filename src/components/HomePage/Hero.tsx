@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
         {isMobile ? (
           <Spline scene="https://prod.spline.design/wOZrH8Syt9tt-bGk/scene.splinecode" />
         ) : (
-          <Spline scene="https://prod.spline.design/sblpw8btgW8Lsdlc/scene.splinecode" />
+          <Spline scene="https://draft.spline.design/aQD4tblkjjSaFZJT/scene.splinecode" />
         )}
       </div>
     );

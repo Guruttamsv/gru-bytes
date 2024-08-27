@@ -7,7 +7,7 @@
     overflow: hidden;
     position: absolute;
     /* Fixed to ensure it's always visible at the top */
-    top: 3.5pc;
+    top: 3pc;
     left: 0;
     cursor: pointer;
     z-index: 9999;
