@@ -3,33 +3,33 @@ import Spline from "@splinetool/react-spline";
 import "../CSS/HomePage/Hero.css";
 
 const Hero: React.FC = () => {
-    const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 479);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 479);
-        };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 479);
+    };
 
-        // Set the initial value
-        handleResize();
+    handleResize(); // Set initial value
 
-        // Update value on window resize
-        window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-    return (
-      <div className="hero-container">
-        {isMobile ? (
-          <Spline scene="https://prod.spline.design/wOZrH8Syt9tt-bGk/scene.splinecode" />
-        ) : (
-          <Spline scene="https://draft.spline.design/aQD4tblkjjSaFZJT/scene.splinecode" />
-        )}
-      </div>
-    );
+  return (
+    <div className={isMobile ? "hero-mobile-container" : "hero-container"}>
+      <Spline
+        scene={
+          isMobile
+            ? "https://prod.spline.design/wOZrH8Syt9tt-bGk/scene.splinecode"
+            : "https://draft.spline.design/aQD4tblkjjSaFZJT/scene.splinecode"
+        }
+      />
+    </div>
+  );
 };
 
 export default Hero;

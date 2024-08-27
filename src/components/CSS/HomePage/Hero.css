@@ -15,17 +15,43 @@
     object-fit: cover;
 }
 
-/* Responsive adjustments if needed */
+/* Mobile-specific styles */
+.hero-mobile-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Ensure full viewport height */
+    overflow: hidden;
+}
+.hero-mobile-container canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Adjusts how the content fits in the container */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-container {
         top: -5px;
-        /* Less upward movement on smaller screens */
+    }
+
+    .hero-mobile-container {
+        top: -3px;
+        /* Adjust for mobile */
     }
 }
 
 @media (max-width: 480px) {
     .hero-container {
         top: -2px;
-        /* Further adjust on very small screens */
+    }
+
+    .hero-mobile-container {
+        top: -2px;
+        /* Further adjust for very small screens */
     }
 }
+
