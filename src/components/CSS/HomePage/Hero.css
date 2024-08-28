@@ -1,6 +1,5 @@
 /* src/components/CSS/HomePage/Hero.css */
 .hero-container {
-    position: absolute;
     top: 0;
     /* Move up by 10px */
     left: 0;
@@ -17,7 +16,6 @@
 
 /* Mobile-specific styles */
 .hero-mobile-container {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -55,3 +53,13 @@
     }
 }
 
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

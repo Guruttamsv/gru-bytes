@@ -27,7 +27,7 @@ const NavBar: React.FC = () => {
             spy={true}
             smooth={true}
             offset={-0}
-            duration={2500}
+            duration={1000}
             onClick={toggleNav}
           >
             <FaHome />
@@ -40,7 +40,7 @@ const NavBar: React.FC = () => {
             spy={true}
             smooth={true}
             offset={20}
-            duration={2500}
+            duration={1000}
             onClick={toggleNav}
           >
             <FaBriefcase />
@@ -53,7 +53,7 @@ const NavBar: React.FC = () => {
             spy={true}
             smooth={true}
             offset={20}
-            duration={2500}
+            duration={1000}
             onClick={toggleNav}
           >
             <FaQuestionCircle />
@@ -66,7 +66,7 @@ const NavBar: React.FC = () => {
             spy={true}
             smooth={true}
             offset={40}
-            duration={2500}
+            duration={1000}
             onClick={toggleNav}
           >
             <FaEnvelope />
