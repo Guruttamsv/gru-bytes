@@ -24,7 +24,7 @@ const WorkGrid: React.FC = () => {
       <Spline
         scene={
           isMobile
-            ? "https://prod.spline.design/Cij5IwvD4GoA4Hao/scene.splinecode"
+            ? "https://draft.spline.design/EDi58NiwTXNm8Kz8/scene.splinecode"
             : "https://prod.spline.design/K9mG8FCYeR1O4CAM/scene.splinecode"
         }
       />
