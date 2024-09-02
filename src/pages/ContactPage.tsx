@@ -86,7 +86,7 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
           <div className="contact-info">
             <h3>Contact Info</h3>
             <p>
-              <strong>Email:</strong> guruttamsv511@gmail.com
+              <strong>Email:</strong> reach.guruttamsv@gmail.com
             </p>
             <p>
               <strong>LinkedIn: </strong>
