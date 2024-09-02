@@ -37,31 +37,32 @@ const ContactPage: React.FC = () => {
     };
   }, []);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent default form submission
-    setSending(true); // Set sending state to true
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault(); // Prevent default form submission
+  setSending(true); // Set sending state to true
 
-    if (formRef.current) {
-      emailjs
-        .sendForm(
-          "service_uo0frog",
-          "template_y7sfsgq",
-          formRef.current,
-          "PK72XSrQCTWNfEsL6"
-        )
-        .then(
-          (result) => {
-            setSending(false); // Set sending state to false
-            setMessage("Message sent successfully!");
-            formRef.current?.reset(); // Clear the form fields
-          },
-          (error) => {
-            setSending(false); // Set sending state to false
-            setMessage("Failed to send message, please try again.");
-          }
-        );
-    }
-  };
+  if (formRef.current) {
+    emailjs
+      .sendForm(
+        "service_uo0frog",
+        "template_y7sfsgq",
+        formRef.current,
+        "PK72XSrQCTWNfEsL6"
+      )
+      .then(
+        () => {
+          setSending(false); // Set sending state to false
+          setMessage("Message sent successfully!");
+          formRef.current?.reset();
+        },
+        () => {
+          setSending(false); // Set sending state to false
+          setMessage("Failed to send message, please try again.");
+        }
+      );
+  }
+};
+
 
   return (
     <div className="contact-page">
