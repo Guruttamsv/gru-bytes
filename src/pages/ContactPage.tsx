@@ -1,8 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import emailjs from "emailjs-com";
 import "../pagesCSS/ContactPage.css";
 
 const ContactPage: React.FC = () => {
   const subHeadingRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null); // Ref for form
+  const [sending, setSending] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,8 +37,33 @@ const ContactPage: React.FC = () => {
     };
   }, []);
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevent default form submission
+    setSending(true); // Set sending state to true
+
+    if (formRef.current) {
+      emailjs
+        .sendForm(
+          "service_uo0frog",
+          "template_y7sfsgq",
+          formRef.current,
+          "PK72XSrQCTWNfEsL6"
+        )
+        .then(
+          (result) => {
+            setSending(false); // Set sending state to false
+            setMessage("Message sent successfully!");
+            formRef.current?.reset(); // Clear the form fields
+          },
+          (error) => {
+            setSending(false); // Set sending state to false
+            setMessage("Failed to send message, please try again.");
+          }
+        );
+    }
+  };
+
   return (
-    
     <div className="contact-page">
       <div className="subheading-container">
         <div className="sub-heading" ref={subHeadingRef}>
@@ -47,28 +76,35 @@ const ContactPage: React.FC = () => {
       </div>
       <div className="content-container">
         <p>
-          If you’d like to collaborate on a project, feel free to reach out to
-          me. I am always open to discussing new ideas or opportunities. Here’s
-          how you can contact me:
+          Curious about my work or just eager for a good chat? Feel free to drop
+          me a line! I’d love to connect, share ideas, and explore exciting
+          conversations together.
         </p>
 
         <div className="contact-details">
           <div className="contact-info">
             <h3>Contact Info</h3>
             <p>
-              <strong>Email:</strong> example@gmail.com
+              <strong>Email:</strong> guruttamsv511@gmail.com
             </p>
             <p>
-              <strong>Phone:</strong> +1 234 567 890
+              <strong>LinkedIn: </strong>
+              <a
+                href="https://www.linkedin.com/in/guruttamsv/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GuruttamSv
+              </a>
             </p>
             <p>
-              <strong>Address:</strong> 1234 Main St, City, Country
+              <strong>Address:</strong> Uxbridge, London
             </p>
           </div>
 
           <div className="contact-form">
             <h3>Send a Message</h3>
-            <form>
+            <form ref={formRef} onSubmit={handleSubmit}>
               <label htmlFor="name">Name</label>
               <input type="text" id="name" name="name" required />
 
@@ -83,9 +119,20 @@ const ContactPage: React.FC = () => {
                 required
               ></textarea>
 
-              <button type="submit">Send Message</button>
+              <button type="submit" disabled={sending}>
+                {sending ? "Sending..." : "Send Message"}
+              </button>
+
+              {message && <p className="message">{message}</p>}
             </form>
           </div>
+        </div>
+
+        {/* Add the Download CV Button */}
+        <div className="download-cv">
+          <a href="src/gurusofteng.pdf" download className="download-button">
+            Download CV
+          </a>
         </div>
       </div>
     </div>

@@ -11,8 +11,8 @@ const FloatingIcons: React.FC<FloatingIconsProps> = ({ mobile = false }) => {
       <Spline
         scene={
           mobile
-            ? "https://prod.spline.design/HkSKzMYuK5rJjs5j/scene.splinecode"
-            : "https://prod.spline.design/rVN18yVnsmMEqX3w/scene.splinecode"
+            ? "https://draft.spline.design/ooYEPpHBtdmeZ0jG/scene.splinecode"
+            : "https://draft.spline.design/yGcjFrlDIRCckVmW/scene.splinecode"
         }
       />
     </div>

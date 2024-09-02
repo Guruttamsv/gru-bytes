@@ -133,3 +133,24 @@
         /* Ensure spacing for very small screens */
     }
 }
+
+.download-cv {
+    margin-top: 20px;
+    /* Add spacing from other elements */
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5A43A0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #EEC2FF;
+}

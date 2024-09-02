@@ -1,6 +1,8 @@
-import React, { useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import WorkGrid from "../components/WorkPage/WorkGrid";
 import "../pagesCSS/WorkPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const WorkPage: React.FC = () => {
   const subHeadingRef = useRef<HTMLDivElement>(null);
@@ -16,10 +18,10 @@ const WorkPage: React.FC = () => {
               letters.forEach((letter, index) => {
                 setTimeout(() => {
                   letter.classList.add("show");
-                }, index * 100); // Adjust timing for the effect
+                }, index * 100);
               });
             }
-            subHeadingObserver.unobserve(entry.target); // Stop observing after animation
+            subHeadingObserver.unobserve(entry.target);
           }
         });
       },
@@ -35,6 +37,10 @@ const WorkPage: React.FC = () => {
     };
   }, []);
 
+  const handleGithubClick = () => {
+    window.open("https://github.com/Guruttamsv?tab=repositories", "_blank");
+  };
+
   return (
     <div className="work-page-container">
       <div className="sub-heading" ref={subHeadingRef}>
@@ -43,6 +49,13 @@ const WorkPage: React.FC = () => {
             {char}
           </span>
         ))}
+        <button
+          className="github-button"
+          onClick={handleGithubClick}
+          aria-label="View GitHub Repositories"
+        >
+          <FontAwesomeIcon icon={faGithub} />
+        </button>
       </div>
 
       <div ref={workGridRef} style={{ minHeight: "200px" }}>
